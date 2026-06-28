@@ -20,20 +20,13 @@ conda env create -f environment.yml
 conda activate coronary_env
 ```
 
-### 2. Install the Package
+### 2. Run the Application
 
 ```bash
-cd coronary_postprocessing
-python setup.py build_ext --inplace
+streamlit run coronary_app/coronary_stenosis_viewer_app.py
 ```
 
-### 3. Run the Application
-
-```bash
-streamlit run coronary_stenosis_viewer_app.py
-```
-
-The app will be available at `http://localhost:8501`
+The app will be available at `http://localhost:8501` or other port that shows up.
 
 ---
 
@@ -44,7 +37,7 @@ The app will be available at `http://localhost:8501`
 #### Step 1: Clone the Repository
 ```bash
 git clone <repository-url>
-cd coronary_postprocessing
+cd coronary_app
 ```
 
 #### Step 2: Create Environment from YAML
@@ -53,17 +46,12 @@ conda env create -f environment.yml -n coronary_env
 conda activate coronary_env
 ```
 
-#### Step 3: Compile Cython Extensions
-```bash
-python setup.py build_ext --inplace
-```
-
-#### Step 4: Verify Installation
+#### Step 3: Verify Installation
 ```bash
 python -c "import streamlit; import nibabel; import scipy; print('✓ All core dependencies installed')"
 ```
 
-#### Step 5: Configure Streamlit (Optional)
+#### Step 4: Configure Streamlit (Optional)
 Create `~/.streamlit/config.toml`:
 ```toml
 [server]
@@ -75,9 +63,9 @@ headless = true
 level = "info"
 ```
 
-#### Step 6: Launch Application
+#### Step 5: Launch Application
 ```bash
-streamlit run coronary_stenosis_viewer_app.py
+streamlit run coronary_app/coronary_stenosis_viewer_app.py
 ```
 
 ---
@@ -94,11 +82,8 @@ source coronary_env/bin/activate
 # Install dependencies
 pip install -r requirements.txt
 
-# Compile extensions
-python setup.py build_ext --inplace
-
 # Run application
-streamlit run coronary_stenosis_viewer_app.py
+streamlit run coronary_app/coronary_stenosis_viewer_app.py
 ```
 
 ---
@@ -132,59 +117,6 @@ streamlit run coronary_stenosis_viewer_app.py --server.fileWatcherType none
 ```bash
 pip install --upgrade streamlit
 ```
-
-### Issue: Cython compilation fails
-**Solution**: Install build dependencies
-```bash
-# Ubuntu/Debian
-sudo apt-get install build-essential python3-dev
-
-# macOS
-xcode-select --install
-```
-
-### Issue: Results disappear when moving sliders
-**Solution**: This is already fixed in the latest version (uses `st.session_state` persistence)
-
----
-
-## Recent Changes (Coronary Viewer Enhancements)
-
-### Features Added:
-1. **Remote File Browsing**: Browse NIfTI files directly from SSH server
-2. **Result Persistence**: Analysis results stay on screen when adjusting parameters
-3. **Save/Load Bundles**: Auto-save analysis results as compressed `.npz` + metadata JSON
-4. **Proportional CT Display**: Fixed aspect ratio (1:1) for CT slice visualization
-5. **Consensus Stenosis Table**: Shows detected stenosis regions with vote ratios
-6. **Result Download**: Download saved analysis bundles directly from UI
-7. **Save Log**: Track recently saved results in sidebar
-8. **Progress Animation**: Multi-stage status display during analysis
-9. **Multi-mode Input**: Upload local files, browse server, or reopen saved results
-10. **Settings Persistence**: All analysis parameters are saved with results
-
-### UI Improvements:
-- Mode-specific sidebar that changes based on "Upload", "Browse", or "Open" mode
-- Consensus stenosis analysis table in results panel
-- Download button for saved bundles
-- Live save log showing where results were stored
-- Window level/width controls work without recomputation
-
----
-
-## File Structure
-
-```
-coronary_postprocessing/
-├── coronary_stenosis_viewer_app.py    # Main Streamlit application
-├── setup.py                            # Cython extension build config
-├── environment.yml                     # Conda environment specification
-├── requirements.txt                    # Pip requirements
-├── INSTALLATION.md                     # This file
-├── viewer_results/                     # Saved analysis bundles (auto-created)
-├── masks/                              # Test data directory
-└── [notebooks]                         # Legacy Jupyter notebooks
-```
-
 ---
 
 ## Running on Remote Server (SSH)
@@ -246,16 +178,7 @@ For faster performance on large datasets, consider:
 
 ---
 
-## Support & Documentation
-
-For detailed algorithm information, see included Jupyter notebooks:
-- `Straightened-GT_manual-refactored.ipynb` - Core straightening logic
-- `stenosis_detection_pipeline_IPA.ipynb` - Multi-angle stenosis detection
-
----
-
 ## License & Attribution
-
-[Add your project license and attribution here]
+With aid of Github Copilot.
 
 Last Updated: 2026-06-26

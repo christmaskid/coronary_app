@@ -1,0 +1,26 @@
+# Coronary Stenosis Viewer - Python Requirements
+# Usage: pip install -r requirements.txt
+
+# Core Scientific Computing
+numpy>=1.21
+scipy>=1.9
+scikit-image>=0.20
+pandas>=1.5
+
+# Medical Imaging
+nibabel>=5.0
+
+# Graph & Network Analysis
+networkx>=3.0
+
+# Visualization
+plotly>=5.0
+
+# Web Framework
+streamlit>=1.28
+
+# Build Tools
+Cython>=0.29
+
+# Optional: GPU acceleration
+# cupy>=11.0  # Uncomment for GPU support with CUDA
