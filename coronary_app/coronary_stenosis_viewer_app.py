@@ -1263,7 +1263,7 @@ def build_consensus_figure(result, ct_affine):
 
 st.title("Coronary Stenosis Viewer")
 st.caption("Input CT mask, centerline extraction, straightening, diameter profile, and multi-angle stenosis consensus for coronary arteries.")
-results_default_dir = str(Path("/home/b09401064/coronary_postprocessing/viewer_results").expanduser())
+results_default_dir = str(Path(os.getcwd()) / "viewer_results")
 
 if "analysis_result" not in st.session_state:
     st.session_state.analysis_result = None
