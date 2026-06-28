@@ -3,16 +3,23 @@
 ## Overview
 
 The Coronary Stenosis Viewer is a Streamlit-based interactive application for analyzing coronary artery stenosis from CT images. This guide walks through environment setup and installation.
-
+<!-- 
 ## System Requirements
 
 - **OS**: Linux (tested on Ubuntu 20.04+)
 - **Python**: 3.9 or higher (3.12 recommended)
 - **RAM**: 8 GB minimum (16 GB recommended for large datasets)
-- **GPU**: Optional (CUDA 11.8+ for acceleration)
+- **GPU**: Optional (CUDA 11.8+ for acceleration) -->
 
 ## Quick Setup
 
+#### Clone the Repository
+```bash
+git clone git@github.com:christmaskid/coronary_app.git
+cd coronary_app
+```
+
+### Option A
 ### 1. Create Conda Environment
 
 ```bash
@@ -27,47 +34,6 @@ streamlit run coronary_app/coronary_stenosis_viewer_app.py
 ```
 
 The app will be available at `http://localhost:8501` or other port that shows up.
-
----
-
-## Detailed Installation Steps
-
-### Option A: Using Conda (Recommended)
-
-#### Step 1: Clone the Repository
-```bash
-git clone <repository-url>
-cd coronary_app
-```
-
-#### Step 2: Create Environment from YAML
-```bash
-conda env create -f environment.yml -n coronary_env
-conda activate coronary_env
-```
-
-#### Step 3: Verify Installation
-```bash
-python -c "import streamlit; import nibabel; import scipy; print('✓ All core dependencies installed')"
-```
-
-#### Step 4: Configure Streamlit (Optional)
-Create `~/.streamlit/config.toml`:
-```toml
-[server]
-fileWatcherType = "none"
-runOnSave = false
-headless = true
-
-[logger]
-level = "info"
-```
-
-#### Step 5: Launch Application
-```bash
-streamlit run coronary_app/coronary_stenosis_viewer_app.py
-```
-
 ---
 
 ### Option B: Manual Package Installation
@@ -87,7 +53,7 @@ streamlit run coronary_app/coronary_stenosis_viewer_app.py
 ```
 
 ---
-
+<!-- 
 ## Core Dependencies
 
 | Package | Version | Purpose |
@@ -174,7 +140,7 @@ cat ~/.streamlit/config.toml
 For faster performance on large datasets, consider:
 - Reducing CT volume size (crop ROI)
 - Decreasing `output_plane_size` in settings
-- Reducing number of angles for stenosis measurement
+- Reducing number of angles for stenosis measurement -->
 
 ---
 
